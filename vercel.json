@@ -2,8 +2,8 @@
     "version": 2,
     "builds": [
         {
-            "src": "*.py",
-            "use": "@jmilliaan/flask_foodreccom"
+            "src": "app.py",
+            "use": "@foodrecommendation@1.0.0"
         }
     ],
     "routes": [
