@@ -3,7 +3,7 @@
     "builds": [
         {
             "src": "*.py",
-            "use": "@jmilliaan/flask-foodrecommendation"
+            "use": "@jmilliaan/flask_foodreccom"
         }
     ],
     "routes": [
