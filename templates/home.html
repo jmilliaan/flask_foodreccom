@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Home Page</title>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- <link rel="stylesheet" type="text/css" href="../styles/style.css"> -->
+    </head>
+    <body>
+        <div class="container-fluid">
+            <br><br>
+            <div>
+                <h1>Pengenalan Data Science</h1><br>
+                <h2>Penggunaan Data Science untuk Rekomendasi Makanan, Minuman, dan Cemilan</h2>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="{{ url_for('makanan') }}" class="btn btn-primary btn-lg btn-block">Rekomendasi Makanan</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{{ url_for('minuman') }}" class="btn btn-primary btn-lg btn-block">Rekomendasi Minuman</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{{ url_for('cemilan') }}" class="btn btn-primary btn-lg btn-block">Rekomendasi Cemilan</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rekomendasi minuman</title>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    </head>
+    <style>
+        label {
+            padding-left:20px;
+            padding-right: 25px;
+        }
+        input[type="radio"] {
+            padding-right: 60px;
+        }
+        .radio-container {
+            display: inline-block;
+            vertical-align: top;
+            margin-bottom: 30px;
+        }
+        .radio-list-container {
+            display: inline-block;
+            margin-left: 400px;
+            margin-top: -280px;
+            vertical-align: top;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="col-sm-4">
+                  <a href="{{ url_for('home') }}" class="btn btn-info btn-lg btn-block">Home</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{{ url_for('makanan') }}" class="btn btn-primary btn-lg btn-block">Rekomendasi Makanan</a>
+                  </div>
+                  <div class="col-sm-4">
+                    <a href="{{ url_for('cemilan') }}" class="btn btn-primary btn-lg btn-block">Rekomendasi Cemilan</a>
+                  </div>
+            </div>
+            <br><hr>
+            <h1>Pilih minuman yang disukai</h1>
+            <hr>
+            <form method="post">
+
+                <div class="radio-container">
+                    <p><strong>{{ minuman_1 }}</strong></p> 
+                    {% for i in range(1, 6) %}
+                        <label class="form-check-label">{{i}}</label>
+                        <input class="form-check-input" type="radio" name="radio1" id="1_inlineRadio{{i}}" value="{{i}}" {% if value_1 == i %}checked{% endif %} required>
+                    {% endfor %}   
+                </div><br>
+                <div class="radio-container">
+                    <p><strong>{{ minuman_2 }}</strong></p>
+                    {% for j in range(1, 6) %}
+                        <label class="form-check-label">{{j}}</label>
+                        <input class="form-check-input" type="radio" name="radio2" id="2_inlineRadio{{j}}" value="{{j}}" {% if value_2 == j %}checked{% endif %} required>
+                    {% endfor %} 
+                </div><br>
+                <div class="radio-container">
+                    <p><strong>{{ minuman_3 }}</strong></p>
+                    {% for k in range(1, 6) %}
+                        <label class="form-check-label">{{k}}</label>
+                        <input class="form-check-input" type="radio" name="radio3" id="3_inlineRadio{{k}}" value="{{k}}" {% if value_3 == k %}checked{% endif %} required>
+                    {% endfor %} 
+                </div><br>
+                <div class="radio-list-container">
+                    <div class="list-container">
+                        <p><strong>Penjelasan skala pilihan</strong></p>
+                        <ul>
+                            <li>1: Sangat tidak suka</li>
+                            <li>2: Tidak suka</li>
+                            <li>3: Biasa aja</li>
+                            <li>4: Suka</li>
+                            <li>5: Sangat suka</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary" name="action" value="show_table;{{ minuman_1 }};{{ minuman_2 }};{{ minuman_3 }};{{ slider1 }};{{ slider2 }};{{ slider3 }}">Beri aku rekomendasi minuman!</button>
+                <button type="submit" class="btn btn-secondary" name="action" value="reset">Reset</button>
+                <br><br>
+                <h2>Rekomendasi minuman</h2>
+                {% if total is not none and total != ""  %}
+                    <table class="table table-striped">{{ table|safe }}</table>
+                {% endif %}
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+            </form>
+            <br>
+            <hr>
+            <!-- <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a> -->
+        </div>
+    </body>
+</html>
+
